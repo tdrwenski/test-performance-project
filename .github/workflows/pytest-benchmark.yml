@@ -1,0 +1,52 @@
+name: Pytest Benchmarks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  python-benchmarks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-benchmark
+
+    - name: Create results directory
+      run: mkdir -p performance-results
+
+    - name: Run Python benchmarks
+      run: |
+        pytest test_script.py --benchmark-json=performance-results/python_benchmark.json
+
+    - name: Upload Python benchmark results
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-benchmark-results
+        path: performance-results/python_benchmark.json
+
+    - name: Store benchmark result
+      id: benchmark
+      continue-on-error: true
+      uses: benchmark-action/github-action-benchmark@v1
+      with:
+        tool: 'pytest-benchmark'
+        output-file-path: benchmark.json
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        auto-push: ${{ github.ref == 'refs/heads/main' }}
+        gh-pages-branch: gh-pages
+        benchmark-data-dir-path: dev/pytest/bench
+        comment-always: true
+        fail-on-alert: true
+        alert-threshold: '120%'
+        max-items-in-chart: 100

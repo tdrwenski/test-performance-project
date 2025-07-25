@@ -7,7 +7,7 @@ def test_simple_computation(benchmark):
     """Simple CPU-intensive benchmark"""
     def compute():
         result = 0
-        for i in range(1000):
+        for i in range(10000):
             result += i * i
         return result
 

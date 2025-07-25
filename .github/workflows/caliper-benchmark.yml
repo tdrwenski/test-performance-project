@@ -1,0 +1,66 @@
+name: Caliper Benchmarks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  cpp-benchmarks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential pkg-config
+
+    - name: Install Caliper
+      run: |
+        # Install Caliper from source
+        git clone https://github.com/LLNL/Caliper.git /tmp/caliper
+        cd /tmp/caliper
+        mkdir build && cd build
+        cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
+        make -j$(nproc)
+        sudo make install
+        sudo ldconfig
+
+    - name: Build C++ benchmark
+      run: |
+        cd caliper
+        mkdir -p build
+        cd build
+        cmake ..
+        make
+
+    - name: Run C++ benchmarks
+      run: |
+        cd caliper/build
+        mkdir -p ../performance-results
+        CALI_CONFIG="runtime-report" ./simple_benchmark > benchmark_results.txt 2>&1
+        python convert_to_github_format.py benchmark_results.txt ../performance-results/cpp_benchmark.json
+
+    - name: Upload C++ benchmark results
+      uses: actions/upload-artifact@v4
+      with:
+        name: cpp-benchmark-results
+        path: performance-results/cpp_benchmark.json
+
+    - name: Store benchmark result
+      id: benchmark
+      continue-on-error: true
+      uses: benchmark-action/github-action-benchmark@v1
+      with:
+        tool: 'pytest-benchmark'
+        output-file-path: benchmark.json
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        auto-push: ${{ github.ref == 'refs/heads/main' }}
+        gh-pages-branch: gh-pages
+        benchmark-data-dir-path: dev/caliper/bench
+        comment-always: true
+        fail-on-alert: true
+        alert-threshold: '120%'
+        max-items-in-chart: 100
