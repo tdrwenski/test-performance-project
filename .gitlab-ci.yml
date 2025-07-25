@@ -26,20 +26,6 @@ stages:
   - build-and-test
   - performance-measurements
 
-# Template for jobs triggering a build-and-test sub-pipeline:
-.build-and-test:
-  stage: build-and-test
-  trigger:
-    include:
-      - local: '.gitlab/custom-jobs-and-variables.yml'
-      - project: 'radiuss/radiuss-shared-ci'
-        ref: 'woptim/caliper-ci'
-        file: 'pipelines/${CI_MACHINE}.yml'
-      - local: '.gitlab/jobs/${CI_MACHINE}.yml'
-    strategy: depend
-    forward:
-      pipeline_variables: true
-
 # Performance pipeline.
 performance-measurements:
   stage: performance-measurements
