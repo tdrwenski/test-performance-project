@@ -33,7 +33,7 @@ stages:
     include:
       - local: '.gitlab/custom-jobs-and-variables.yml'
       - project: 'radiuss/radiuss-shared-ci'
-        ref: 'v2025.07.0'
+        ref: 'woptim/caliper-ci'
         file: 'pipelines/${CI_MACHINE}.yml'
       - local: '.gitlab/jobs/${CI_MACHINE}.yml'
     strategy: depend
@@ -47,7 +47,7 @@ performance-measurements:
     include:
       - local: '.gitlab/custom-jobs-and-variables.yml'
       - project: 'radiuss/radiuss-shared-ci'
-        ref: 'v2025.07.0'
+        ref: 'woptim/caliper-ci'
         file: 'pipelines/performances.yml'
       - local: '.gitlab/jobs/performances.yml'
     strategy: depend
