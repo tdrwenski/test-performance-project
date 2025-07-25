@@ -11,5 +11,5 @@ def test_simple_computation(benchmark):
             result += i * i
         return result
 
-    result = benchmark(compute, iterations=1, rounds=10)
+    result = benchmark.pedantic(compute, iterations=1, rounds=10)
     assert result > 0
