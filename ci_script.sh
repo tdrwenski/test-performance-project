@@ -10,11 +10,11 @@ source test_venv/bin/activate
 python3 -m pip install pytest pytest-benchmark
 
 # Create performance results directory
-RESULTS_DIR=performance-results
-mkdir -p ${RESULTS_DIR}
+PERF_ARTIFACT_DIR=performance-results
+mkdir -p ${PERF_ARTIFACT_DIR}
 
 # Run the benchmark tests
 echo "Running performance benchmarks..."
-pytest test_script.py --benchmark-json=${RESULTS_DIR}/benchmark_results.json
+pytest test_script.py --benchmark-json=${PERF_ARTIFACT_DIR}/processed_results.json
 
-echo "Performance tests completed. Results saved to ${RESULTS_DIR}/benchmark_results.json"
+echo "Performance tests completed. Results saved to ${PERF_ARTIFACT_DIR}/processed_results.json"
