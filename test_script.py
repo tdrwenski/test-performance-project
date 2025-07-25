@@ -13,6 +13,6 @@ def test_simple_computation(benchmark):
         for i in range(10):
             result += i * i
         return result
-    
+
     result = benchmark(compute)
     assert result > 0
