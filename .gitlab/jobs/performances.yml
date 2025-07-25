@@ -22,13 +22,13 @@ ruby-performance-job-2:
 convert-pytest-to-gh-benchmark:
   extends: .pytest_to_gh_benchmark
   stage: perf-runs
-  needs: 
+  needs:
     - ruby-performance-job-1
     - ruby-performance-job-2
 
-Optional: Report to GitHub benchmark API (requires GITHUB_TOKEN)
-report-to-github-benchmark:
-  extends: .report_to_gh_benchmark
-  stage: perf-runs
-  needs: 
-    - convert-pytest-to-gh-benchmark
+# Optional: Report to GitHub benchmark API (requires GITHUB_TOKEN)
+# report-to-github-benchmark:
+#   extends: .report_to_gh_benchmark
+#   stage: perf-runs
+#   needs: 
+#     - convert-pytest-to-gh-benchmark
