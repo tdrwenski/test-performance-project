@@ -30,5 +30,6 @@ ruby-performance-job-2:
 report-to-github-benchmark:
   extends: .report_to_gh_benchmark
   stage: perf-runs
-  needs: 
-    - convert-pytest-to-gh-benchmark
+  needs:
+    - ruby-performance-job-1
+    - ruby-performance-job-2
