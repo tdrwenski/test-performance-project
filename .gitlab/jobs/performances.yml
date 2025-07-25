@@ -27,8 +27,8 @@ ruby-performance-job-2:
 #     - ruby-performance-job-2
 
 # Optional: Report to GitHub benchmark API (requires GITHUB_TOKEN)
-# report-to-github-benchmark:
-#   extends: .report_to_gh_benchmark
-#   stage: perf-runs
-#   needs: 
-#     - convert-pytest-to-gh-benchmark
+report-to-github-benchmark:
+  extends: .report_to_gh_benchmark
+  stage: perf-runs
+  needs: 
+    - convert-pytest-to-gh-benchmark

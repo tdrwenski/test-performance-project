@@ -15,7 +15,7 @@ variables:
 
 ##### SHARED_CI CONFIGURATION
   GITHUB_PROJECT_NAME: "test-performance-project"
-  GITHUB_PROJECT_ORG: "LLNL"
+  GITHUB_PROJECT_ORG: "tdrwenski"
   JOB_CMD:
     value: "./ci_script.sh"
     expand: false
