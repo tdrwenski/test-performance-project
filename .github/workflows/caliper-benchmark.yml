@@ -38,24 +38,18 @@ jobs:
 
     - name: Run C++ benchmarks
       run: |
-        cd caliper/build
-        mkdir -p ../performance-results
-        CALI_CONFIG="runtime-report" ./simple_benchmark > benchmark_results.txt 2>&1
-        python convert_to_github_format.py benchmark_results.txt ../performance-results/cpp_benchmark.json
-
-    - name: Upload C++ benchmark results
-      uses: actions/upload-artifact@v4
-      with:
-        name: cpp-benchmark-results
-        path: performance-results/cpp_benchmark.json
+        cd caliper
+        mkdir -p perf-results
+        CALI_CONFIG=event-trace,output=perf-results/out.cali ./build/simple_benchmark
+        python caliper_to_json.py perf-results/out.cali > perf-results/cpp_benchmark.json
 
     - name: Store benchmark result
       id: benchmark
       continue-on-error: true
       uses: benchmark-action/github-action-benchmark@v1
       with:
-        tool: 'pytest-benchmark'
-        output-file-path: benchmark.json
+        tool: 'customSmallerIsBetter'
+        output-file-path: caliper/build/performance-results/cpp_benchmark.json
         github-token: ${{ secrets.GITHUB_TOKEN }}
         auto-push: ${{ github.ref == 'refs/heads/main' }}
         gh-pages-branch: gh-pages

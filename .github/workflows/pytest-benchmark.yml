@@ -27,7 +27,7 @@ jobs:
 
     - name: Run Python benchmarks
       run: |
-        pytest test_script.py --benchmark-json=performance-results/python_benchmark.json
+        pytest pytest/test_script.py --benchmark-json=performance-results/python_benchmark.json
 
     - name: Upload Python benchmark results
       uses: actions/upload-artifact@v4
@@ -41,7 +41,7 @@ jobs:
       uses: benchmark-action/github-action-benchmark@v1
       with:
         tool: 'pytest-benchmark'
-        output-file-path: benchmark.json
+        output-file-path: performance-results/python_benchmark.json
         github-token: ${{ secrets.GITHUB_TOKEN }}
         auto-push: ${{ github.ref == 'refs/heads/main' }}
         gh-pages-branch: gh-pages
