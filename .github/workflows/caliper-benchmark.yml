@@ -49,7 +49,7 @@ jobs:
       uses: benchmark-action/github-action-benchmark@v1
       with:
         tool: 'customSmallerIsBetter'
-        output-file-path: caliper/build/performance-results/cpp_benchmark.json
+        output-file-path: caliper/performance-results/cpp_benchmark.json
         github-token: ${{ secrets.GITHUB_TOKEN }}
         auto-push: ${{ github.ref == 'refs/heads/main' }}
         gh-pages-branch: gh-pages
