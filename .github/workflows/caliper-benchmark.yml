@@ -39,9 +39,9 @@ jobs:
     - name: Run C++ benchmarks
       run: |
         cd caliper
-        mkdir -p perf-results
-        CALI_CONFIG=event-trace,output=perf-results/out.cali ./build/simple_benchmark
-        python caliper_to_json.py perf-results/out.cali > perf-results/cpp_benchmark.json
+        mkdir -p performance-results
+        CALI_CONFIG=event-trace,output=performance-results/out.cali ./build/simple_benchmark
+        python caliper_to_json.py performance-results/out.cali > performance-results/cpp_benchmark.json
 
     - name: Store benchmark result
       id: benchmark
