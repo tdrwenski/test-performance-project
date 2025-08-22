@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755884870805,
+  "lastUpdate": 1755885721368,
   "repoUrl": "https://github.com/tdrwenski/test-performance-project",
   "entries": {
     "Benchmark": [
@@ -62,6 +62,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00010210642556689302",
             "extra": "mean: 740.9586999926887 usec\nrounds: 10"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "committer": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "distinct": true,
+          "id": "5b0a102231d4bf9e85552fa20f1fd71336b48eee",
+          "message": "Remove metadata",
+          "timestamp": "2025-08-22T12:01:37-06:00",
+          "tree_id": "fff2396434c20cf673054eb0cde31ff6c17a153f",
+          "url": "https://github.com/tdrwenski/test-performance-project/commit/5b0a102231d4bf9e85552fa20f1fd71336b48eee"
+        },
+        "date": 1755885720765,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "pytest/test_script.py::test_simple_computation",
+            "value": 1418.9114792199737,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000012139903909302141",
+            "extra": "mean: 704.7656000004565 usec\nrounds: 10"
           }
         ]
       }
