@@ -57,7 +57,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         auto-push: ${{ github.ref == 'refs/heads/main' }}
         gh-pages-branch: gh-pages
-        benchmark-data-dir-path: dev/caliper/bench
+        benchmark-data-dir-path: dev/bench
         comment-always: true
         fail-on-alert: true
         alert-threshold: '120%'
