@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755813018289,
+  "lastUpdate": 1755884870805,
   "repoUrl": "https://github.com/tdrwenski/test-performance-project",
   "entries": {
     "Benchmark": [
@@ -31,6 +31,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00002916253264581812",
             "extra": "mean: 1.2582973999990088 msec\nrounds: 10"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "committer": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "distinct": true,
+          "id": "bb77acb8c17ed5ba5e3fe9c70d080a8fc8cf34b2",
+          "message": "Use event trace and cali query to get data into json format",
+          "timestamp": "2025-08-22T11:47:23-06:00",
+          "tree_id": "3490bb3b8f2f7782eba0e9f3c1027617b6b379ef",
+          "url": "https://github.com/tdrwenski/test-performance-project/commit/bb77acb8c17ed5ba5e3fe9c70d080a8fc8cf34b2"
+        },
+        "date": 1755884870455,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "pytest/test_script.py::test_simple_computation",
+            "value": 1349.602886112097,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00010210642556689302",
+            "extra": "mean: 740.9586999926887 usec\nrounds: 10"
           }
         ]
       }
