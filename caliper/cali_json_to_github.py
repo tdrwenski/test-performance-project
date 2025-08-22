@@ -56,13 +56,7 @@ def convert_to_github_format(cali_data):
             "value": timing_value
         }
 
-        # Add extra metadata if available
-        extra_info = []
-        if 'region.count' in entry:
-            extra_info.append(f"Calls: {entry['region.count']}")
-
-        if extra_info:
-            benchmark_entry["extra"] = " | ".join(extra_info)
+        # Could add extra metadata here later if needed
 
         github_benchmarks.append(benchmark_entry)
 
