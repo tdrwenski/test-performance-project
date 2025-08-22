@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755813123062,
+  "lastUpdate": 1755884916207,
   "repoUrl": "https://github.com/tdrwenski/test-performance-project",
   "entries": {
     "Benchmark": [
@@ -30,6 +30,35 @@ window.BENCHMARK_DATA = {
             "value": 56635,
             "unit": "nanoseconds",
             "extra": "Invocations: 1\\nTotal time: 56635 nanoseconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "committer": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "distinct": true,
+          "id": "bb77acb8c17ed5ba5e3fe9c70d080a8fc8cf34b2",
+          "message": "Use event trace and cali query to get data into json format",
+          "timestamp": "2025-08-22T11:47:23-06:00",
+          "tree_id": "3490bb3b8f2f7782eba0e9f3c1027617b6b379ef",
+          "url": "https://github.com/tdrwenski/test-performance-project/commit/bb77acb8c17ed5ba5e3fe9c70d080a8fc8cf34b2"
+        },
+        "date": 1755884915660,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Caliper Function - compute_sum_of_squares",
+            "value": 55845,
+            "unit": "nanoseconds"
           }
         ]
       }
