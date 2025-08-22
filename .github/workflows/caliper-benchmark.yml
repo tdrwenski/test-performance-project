@@ -44,7 +44,8 @@ jobs:
         cd caliper
         mkdir -p performance-results
         CALI_CONFIG=event-trace,output=performance-results/out.cali ./build/simple_benchmark
-        python caliper_to_json.py performance-results/out.cali > performance-results/cpp_benchmark.json
+        cali-query -q "SELECT *, avg(time.duration.ns) WHERE event.end#region GROUP BY path FORMAT json(pretty)" performance-results/out.cali > performance-results/cpp_benchmark_raw.json
+        python3 cali_json_to_github.py performance-results/cpp_benchmark_raw.json > performance-results/cpp_benchmark.json
 
     - name: Store benchmark result
       id: benchmark
