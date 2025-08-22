@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755884916207,
+  "lastUpdate": 1755885816305,
   "repoUrl": "https://github.com/tdrwenski/test-performance-project",
   "entries": {
     "Benchmark": [
@@ -58,6 +58,35 @@ window.BENCHMARK_DATA = {
           {
             "name": "Caliper Function - compute_sum_of_squares",
             "value": 55845,
+            "unit": "nanoseconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "committer": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "distinct": true,
+          "id": "5b0a102231d4bf9e85552fa20f1fd71336b48eee",
+          "message": "Remove metadata",
+          "timestamp": "2025-08-22T12:01:37-06:00",
+          "tree_id": "fff2396434c20cf673054eb0cde31ff6c17a153f",
+          "url": "https://github.com/tdrwenski/test-performance-project/commit/5b0a102231d4bf9e85552fa20f1fd71336b48eee"
+        },
+        "date": 1755885815733,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Caliper Function - compute_sum_of_squares",
+            "value": 56615,
             "unit": "nanoseconds"
           }
         ]
