@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1755894255510,
+  "lastUpdate": 1758748559912,
   "repoUrl": "https://github.com/tdrwenski/test-performance-project",
   "entries": {
     "Benchmark": [
@@ -60,6 +60,37 @@ window.BENCHMARK_DATA = {
             "name": "Caliper Function - compute_sum_of_squares",
             "value": 60103,
             "unit": "nanoseconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "committer": {
+            "email": "drwenski1@llnl.gov",
+            "name": "Tara Drwenski",
+            "username": "tdrwenski"
+          },
+          "distinct": true,
+          "id": "5002aaea529f4c0c1c736822dc163beead636440",
+          "message": "Test permissions",
+          "timestamp": "2025-09-24T15:15:22-06:00",
+          "tree_id": "88cf02b3248b5bb1ac6e80bc414746fdd8fe3cc3",
+          "url": "https://github.com/tdrwenski/test-performance-project/commit/5002aaea529f4c0c1c736822dc163beead636440"
+        },
+        "date": 1758748559383,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "pytest/test_script.py::test_simple_computation",
+            "value": 1394.0083846806242,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000028958447369388997",
+            "extra": "mean: 717.3558000005187 usec\nrounds: 10"
           }
         ]
       }
